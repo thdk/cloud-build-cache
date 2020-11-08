@@ -1,4 +1,4 @@
-# package-changed
+# cloud-build-cache
 
 Cache folders such as node_modules in gcs and restore them on next builds.
 
