@@ -14,7 +14,7 @@
     "types"
   ],
   "scripts": {
-    "build:cjs": "tsc --declarationdir types",
+    "build:cjs": "tsc --declarationdir types --tsbuildinfofile .tsbuildinfo.esm",
     "build:es": "tsc -m esNext --outDir esm --declaration false",
     "build": "npm run build:cjs && npm run build:es",
     "lint": "eslint --ext .js,.ts",

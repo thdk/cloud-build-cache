@@ -8,6 +8,6 @@ esm/
 
 types/
 
-tsconfig.tsbuildinfo
+.tsbuildinfo*
 
 .gcs-service-account.json
