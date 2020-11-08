@@ -1,6 +1,6 @@
 {
   "name": "cloud-build-cache",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Cache folders such as node_modules in gcs and restore them on next builds to reduce build time.",
   "main": "lib/index.js",
   "types": "types/index.d.ts",
