@@ -14,12 +14,12 @@
     "types"
   ],
   "scripts": {
-    "build:cjs": "tsc --declarationdir types --tsbuildinfofile .tsbuildinfo.esm",
+    "build:cjs": "tsc --declarationdir types",
     "build:es": "tsc -m esNext --outDir esm --declaration false",
     "build": "npm run build:cjs && npm run build:es",
     "lint": "eslint --ext .js,.ts",
     "format": "prettier --write \"src/**/*.ts\"",
-    "clean": "rimraf lib esm types",
+    "clean": "rimraf lib esm types .tsbuildinfo.*",
     "preversion": "npm run build && npm run lint",
     "version": "npm run format && git add -A",
     "postversion": "git push && git push --tags && npm publish"
