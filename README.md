@@ -20,7 +20,7 @@ const {
   installPackage,
 } = require("cloud-build-cache");
 
-restoreNodeModules({
+installPackage({
     bucketName: 'my-project-build-cache',
     storageOptions: {
         keyFilename: path.resolve(__dirname, '../service-account.json'),
