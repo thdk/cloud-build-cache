@@ -2,7 +2,7 @@
 
 const { program } = require('commander');
 
-const { installPackage } = require('../src/index');
+const { installPackage } = require('../lib/index');
 
 program
     .command('install', {
