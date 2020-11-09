@@ -18,10 +18,6 @@ program
     .option('--no-cache', 'Do not look in cache bucket. Still uploads archive to bucket')
     .option('--cmd [cmd]', 'Command to create node_modules folder.', 'npm ci')
     .action((cmdObj) => {
-        console.log({
-            cwd: cmdObj.cwd,
-            key: cmdObj.key,
-        });
         installPackage({
             bucketName: cmdObj.bucket,
             cwd: cmdObj.cwd || process.cwd(),
