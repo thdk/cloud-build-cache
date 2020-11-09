@@ -69,13 +69,13 @@ export const installPackage = async ({
         console.timeEnd(NODE_MODULES_TIMER);
 
         // create node_modules archive on disk
-        createArchive({
+        await createArchive({
             archivePath,
             cwd,
         });
 
         // upload node_modules archive from disk to cache bucket
-        uploadArchive({
+        await uploadArchive({
             archivePath,
             bucket,
         });
