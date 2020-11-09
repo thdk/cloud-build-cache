@@ -30,7 +30,7 @@ export const installPackage = async ({
     const bucket = gcsClient.bucket(bucketName);
 
     // get hash for dependencies and devDependencies in package.json
-    const { hash, isChanged } = isPackageChanged({
+    const { hash, isChanged } = await isPackageChanged({
         cwd,
     });
 

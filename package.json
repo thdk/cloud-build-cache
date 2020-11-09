@@ -58,7 +58,7 @@
     "@google-cloud/storage": "^5.4.0",
     "commander": "^6.2.0",
     "del": "^6.0.0",
-    "package-changed": "^1.2.1",
+    "package-changed": "^1.5.0",
     "queue-promise": "^2.1.0",
     "tar": "^6.0.5"
   }
