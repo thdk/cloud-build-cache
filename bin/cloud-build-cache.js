@@ -2,7 +2,7 @@
 
 const { program } = require('commander');
 
-const { installPackage } = require('../lib/index');
+const { installPackage } = require('../src/index');
 
 program
     .command('install', {
@@ -25,12 +25,10 @@ program
                 keyFilename: cmdObj.key,
             },
             noCache: !cmdObj.cache,
+        }).catch(() => {
+            console.error('Error while trying to install using cloud-build-cache');
+            process.exit(1);
         });
     });
 
-try {
-    program.parse(process.argv);
-} catch (e) {
-    console.error(e);
-    process.exit(1);
-}
+program.parse(process.argv);
