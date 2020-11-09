@@ -11,3 +11,5 @@ types/
 .tsbuildinfo*
 
 .gcs-service-account.json
+
+/test.js

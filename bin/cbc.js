@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const { program } = require('commander');
 
 const { installPackage } = require('../lib/index');
@@ -16,6 +18,10 @@ program
     .option('--no-cache', 'Do not look in cache bucket. Still uploads archive to bucket')
     .option('--cmd [cmd]', 'Command to create node_modules folder.', 'npm ci')
     .action((cmdObj) => {
+        console.log({
+            cwd: cmdObj.cwd,
+            key: cmdObj.key,
+        });
         installPackage({
             bucketName: cmdObj.bucket,
             cwd: cmdObj.cwd || process.cwd(),
@@ -26,4 +32,9 @@ program
         });
     });
 
-program.parse(process.argv);
+try {
+    program.parse(process.argv);
+} catch (e) {
+    console.error(e);
+    process.exit(1);
+}
