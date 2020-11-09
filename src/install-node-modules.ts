@@ -8,6 +8,7 @@ export const installNodeModules = ({
     cmd?: string;
 }): void => {
     console.info('Installing...');
+    console.info(cmd);
     try {
         execSync(cmd, {
             stdio: 'inherit',

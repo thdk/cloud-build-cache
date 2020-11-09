@@ -30,59 +30,66 @@ export const installPackage = async ({
     const bucket = gcsClient.bucket(bucketName);
 
     // get hash for dependencies and devDependencies in package.json
-    const { hash, isChanged } = await isPackageChanged({
-        cwd,
-    });
-
-    if (!isChanged) {
-        return;
-    }
-
-    const [cacheExists] = await bucket.file(`${hash}.tgz`).exists();
-    const archivePath = path.resolve(cwd, `${hash}.tgz`);
-
-    if (cacheExists && !noCache) {
-        console.info('Archive found in cache bucket.');
-
-        const archive = await downloadArchive({
-            file: `${hash}.tgz`,
-            archivePath,
+    await isPackageChanged(
+        {
             cwd,
-            bucket,
-        });
+        },
+        async ({ hash, isChanged }) => {
+            if (!isChanged) {
+                return false;
+            }
 
-        await extractArchive({
-            buffer: archive,
-            cwd,
-            archivePath,
-        });
+            const [cacheExists] = await bucket.file(`${hash}.tgz`).exists();
+            const archivePath = path.resolve(cwd, `${hash}.tgz`);
 
-        console.timeEnd(NODE_MODULES_TIMER);
-    } else {
-        console.info('Nothing found in cache bucket.');
+            if (cacheExists && !noCache) {
+                console.info('Archive found in cache bucket.');
 
-        installNodeModules({
-            cwd,
-            cmd: installCmd,
-        });
+                const archive = await downloadArchive({
+                    file: `${hash}.tgz`,
+                    archivePath,
+                    cwd,
+                    bucket,
+                });
 
-        console.timeEnd(NODE_MODULES_TIMER);
+                await extractArchive({
+                    buffer: archive,
+                    cwd,
+                    archivePath,
+                });
 
-        // create node_modules archive on disk
-        await createArchive({
-            archivePath,
-            cwd,
-        });
+                console.timeEnd(NODE_MODULES_TIMER);
+            } else {
+                console.info('Nothing found in cache bucket.');
 
-        // upload node_modules archive from disk to cache bucket
-        await uploadArchive({
-            archivePath,
-            bucket,
-        });
-    }
+                installNodeModules({
+                    cwd,
+                    cmd: installCmd,
+                });
 
-    // always cleanup archive (either created or downloaded)
-    deleteArchive({
-        archivePath,
-    });
+                console.timeEnd(NODE_MODULES_TIMER);
+
+                if (noCache) {
+                    return;
+                }
+
+                // create node_modules archive on disk
+                await createArchive({
+                    archivePath,
+                    cwd,
+                });
+
+                // upload node_modules archive from disk to cache bucket
+                await uploadArchive({
+                    archivePath,
+                    bucket,
+                });
+            }
+
+            // always cleanup archive (either created or downloaded)
+            await deleteArchive({
+                archivePath,
+            });
+        },
+    );
 };

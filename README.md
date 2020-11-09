@@ -39,7 +39,7 @@ Options:
   --bucket [name]      Name of google cloud storage bucket. Used as cache location.
   --cwd [cwd]          Current working directory.
   --key [keyFilename]  Path to key file with service account for Google cloud storage.
-  --no-cache           Do not look in cache bucket. Still uploads archive to bucket
+  --no-cache           Do not use the cache bucket.
   --cmd [cmd]          Command to create node_modules folder. (default: "npm ci")
   -h, --help           display help for command
 ```
