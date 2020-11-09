@@ -13,7 +13,7 @@ You can find this package on `npm`.
 
 ## Example usage
 
-**node**
+**Node**
 
 ```javascript
 const {
@@ -31,15 +31,25 @@ installPackage({
 **CLI**
 
 ```
-Usage: cbc install [options]
+Usage: cloud-build-cache [options] [command]
+
+Options:
+  -h, --help         display help for command
+
+Commands:
+  install [options]  Fetch node_modules from cloud storage bucket before installing the package.
+  help [command]     display help for command
+
+
+Usage: cloud-build-cache install [options]
 
 Fetch node_modules from cloud storage bucket before installing the package.
 
 Options:
-  --bucket [name]      Name of google cloud storage bucket. Used as cache location.
+  --bucket <name>      Name of google cloud storage bucket. Used as cache location.
   --cwd [cwd]          Current working directory.
-  --key [keyFilename]  Path to key file with service account for Google cloud storage.
-  --no-cache           Do not use the cache bucket.
+  --key <keyFilename>  Path to key file with service account for Google cloud storage.
+  --no-cache           Do not use cache bucket.
   --cmd [cmd]          Command to create node_modules folder. (default: "npm ci")
-  -h, --help           display help for command
+  -h, --help           display help for command.
 ```
