@@ -38,10 +38,10 @@ export const installPackage = async ({
         return;
     }
 
-    const cacheExists = !noCache && bucket.file(`${hash}.tgz`).exists();
+    const [cacheExists] = await bucket.file(`${hash}.tgz`).exists();
     const archivePath = path.resolve(cwd, `${hash}.tgz`);
 
-    if (cacheExists) {
+    if (cacheExists && !noCache) {
         console.info('Archive found in cache bucket.');
 
         const archive = await downloadArchive({
