@@ -4,7 +4,7 @@ Cache folders such as node_modules in Google Cloud Storage and restore them on n
 
 **NOTE: If you are using `npm install` in your projects and are looking to speed up your CI/CD build process you should first look at using `npm ci`.**
 
-**NOTE: I found this method of caching `node_modules` only a little bit faster than using `npm ci` for larger projects with many dependencies. It's up to you to find out what works best for you and your team. See --no-cache option to disable cloud storage cache.**
+**NOTE: I found this method of caching `node_modules` only a little bit faster than using `npm ci` for larger projects with many dependencies. It's up to you to find out what works best for you and your team. See `--no-cache` option to disable cloud storage cache.**
 
 
 ## Install
