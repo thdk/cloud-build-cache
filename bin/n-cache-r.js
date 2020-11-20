@@ -25,8 +25,9 @@ program
                 keyFilename: cmdObj.key,
             },
             noCache: !cmdObj.cache,
-        }).catch(() => {
-            console.error('Error while trying to install using node-modules-cache');
+        }).catch((e) => {
+            console.error(e);
+            console.error('Error while trying to install using n-cache-r');
             process.exit(1);
         });
     });

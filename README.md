@@ -1,17 +1,12 @@
-# node-modules-cache
+# n-cache-r (Node Cache Restore)
 
-Cache folders such as node_modules in Google Cloud Storage and restore them on next builds.
-
-**NOTE: If you are using `npm install` in your projects and are looking to speed up your CI/CD build process you should first look at using `npm ci`.**
-
-**NOTE: I found this method of caching `node_modules` only a little bit faster than using `npm ci` for larger projects with many dependencies. It's up to you to find out what works best for you and your team. See `--no-cache` option to disable cloud storage cache.**
-
+Cache folders node_modules in Google Cloud Storage and restore them on next builds.
 
 ## Install
 
 You can find this package on `npm`.
 
-`npm install node-modules-cache`
+`npm install n-cache-r`
 
 ## Example usage
 
@@ -20,7 +15,7 @@ You can find this package on `npm`.
 ```javascript
 const {
   installPackage,
-} = require("node-modules-cache");
+} = require("n-cache-r");
 
 installPackage({
     bucketName: 'my-project-build-cache',
@@ -33,7 +28,7 @@ installPackage({
 **CLI**
 
 ```
-Usage: node-modules-cache [options] [command]
+Usage: n-cache-r [options] [command]
 
 Options:
   -h, --help         display help for command
@@ -43,7 +38,7 @@ Commands:
   help [command]     display help for command
 
 
-Usage: node-modules-cache install [options]
+Usage: n-cache-r install [options]
 
 Fetch node_modules from cloud storage bucket before installing the package.
 
