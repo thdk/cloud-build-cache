@@ -1,6 +1,6 @@
 {
   "name": "n-cache-r",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Node Cashe Restore: Install packages with cached node_modules in Google Cloud Storage or locally and restore them on next builds when dependencies have not changed to reduce build time.",
   "main": "lib/index.js",
   "types": "types/index.d.ts",
