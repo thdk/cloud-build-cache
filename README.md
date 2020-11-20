@@ -1,4 +1,4 @@
-# cloud-build-cache
+# node-modules-cache
 
 Cache folders such as node_modules in Google Cloud Storage and restore them on next builds.
 
