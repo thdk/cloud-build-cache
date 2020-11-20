@@ -1,6 +1,6 @@
 {
   "name": "node-modules-cache",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Install packages with cached node_modules in Google Cloud Storage or locally and restore them on next builds when dependencies have not changed to reduce build time.",
   "main": "lib/index.js",
   "types": "types/index.d.ts",
