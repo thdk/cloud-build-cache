@@ -11,7 +11,7 @@ Cache folders such as node_modules in Google Cloud Storage and restore them on n
 
 You can find this package on `npm`.
 
-`npm install cloud-build-cache`
+`npm install node-modules-cache`
 
 ## Example usage
 
@@ -20,7 +20,7 @@ You can find this package on `npm`.
 ```javascript
 const {
   installPackage,
-} = require("cloud-build-cache");
+} = require("node-modules-cache");
 
 installPackage({
     bucketName: 'my-project-build-cache',
@@ -33,7 +33,7 @@ installPackage({
 **CLI**
 
 ```
-Usage: cloud-build-cache [options] [command]
+Usage: node-modules-cache [options] [command]
 
 Options:
   -h, --help         display help for command
@@ -43,7 +43,7 @@ Commands:
   help [command]     display help for command
 
 
-Usage: cloud-build-cache install [options]
+Usage: node-modules-cache install [options]
 
 Fetch node_modules from cloud storage bucket before installing the package.
 

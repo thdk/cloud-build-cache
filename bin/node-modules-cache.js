@@ -26,7 +26,7 @@ program
             },
             noCache: !cmdObj.cache,
         }).catch(() => {
-            console.error('Error while trying to install using cloud-build-cache');
+            console.error('Error while trying to install using node-modules-cache');
             process.exit(1);
         });
     });

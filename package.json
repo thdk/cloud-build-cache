@@ -1,12 +1,12 @@
 {
-  "name": "cloud-build-cache",
-  "version": "0.3.9",
-  "description": "Cache folders such as node_modules in gcs and restore them on next builds to reduce build time.",
+  "name": "node-modules-cache",
+  "version": "0.0.1",
+  "description": "Install packages with cached node_modules in Google Cloud Storage or locally and restore them on next builds when dependencies have not changed to reduce build time.",
   "main": "lib/index.js",
   "types": "types/index.d.ts",
   "typings": "types/index.d.ts",
   "bin": {
-    "cloud-build-cache": "./bin/cloud-build-cache.js"
+    "node-modules-cache": "./bin/node-modules-cache.js"
   },
   "files": [
     "lib",
@@ -26,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/thdk/cloud-build-cache.git"
+    "url": "https://github.com/thdk/node-modules-cache.git"
   },
   "author": "Thomas Dekiere <t.dekiere@gmail.com>(http://github.com/thdk)",
   "license": "ISC",
