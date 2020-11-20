@@ -1,6 +1,6 @@
 # n-cache-r (Node Cache Restore)
 
-Cache folders node_modules in Google Cloud Storage and restore them on next builds.
+Cache node_modules in Google Cloud Storage or on disk and restore them on next builds.
 
 ## Install
 
